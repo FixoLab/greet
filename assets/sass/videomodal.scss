@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@import './abstracts/mixins';
+
+// color variables
+$color-orange: #7432ff;
+$color-secondary: #161e2e78;
+$color-tertiary: #161e2e9a;
+$color-light: #fff;
+
+.greet_wrapper {
+  transition: all 0.3s;
+  transform-origin: bottom right;
+  width: 170px;
+  height: 170px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  cursor: pointer;
+  z-index: 9999;
+
+  video {
+    border-radius: 100%;
+    border: 3px solid $color-orange;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  .greet_text {
+    position: absolute;
+    top: 50%;
+    z-index: 99;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: $color-light;
+    width: 100%;
+    text-align: center;
+    font-size: 25px;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .greet_close {
+    position: absolute;
+    top: -6px;
+    right: 15px;
+    opacity: 0;
+    transition: 0.3s;
+  }
+
+  &:hover .greet_close {
+    opacity: 1;
+  }
+
+  .greet_close i {
+    font-size: 25px;
+  }
+
+  &-resize {
+    transform: scale(0.67);
+  }
+
+  [class*="greet_full-"] {
+    display: none;
+
+    .greet_media-action {
+      display: none;
+    }
+  }
+
+  //Full screen close btn
+  .greet_full-close {
+    display: none;
+  }
+
+  &-full {
+    width: 300px;
+    height: 500px;
+
+    video {
+      border-radius: 10px;
+      border: none;
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+
+    .greet_text {
+      display: none;
+    }
+
+    .greet_close {
+      display: none;
+    }
+
+    &.greet_wrapper-resize {
+      transform: inherit;
+    }
+
+    [class*="greet_full-"] {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: $color-secondary;
+      color: $color-light;
+      transition: all 0.5s;
+      i {
+        font-size: 25px;
+      }
+    }
+    [class*="greet_full-"]:hover {
+      background-color: $color-tertiary;
+    }
+
+    .greet_full-close {
+      top: 5px;
+      right: 5px;
+    }
+
+    .greet_full-play {
+      width: 60px;
+      height: 60px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .greet_media-action {
+      display: flex;
+      flex-direction: column;
+      top: 5px;
+      left: 5px;
+      position: absolute;
+
+      [class*="greet_full-"] {
+        position: unset;
+        margin-bottom: 5px;
+      }
+    }
+  }
+}
+
+@include respond(phone) {
+  .greet_wrapper {
+    width: 150px;
+    height: 150px;
+
+    &-full {
+      width: 250px;
+      height: 400px;
+    }
+  }
+}
+
+@include respond(mini) {
+  .greet_wrapper {
+    width: 135px;
+    height: 135px;
+
+    &-full {
+      width: 200px;
+      height: 350px;
+    }
+  }
+}

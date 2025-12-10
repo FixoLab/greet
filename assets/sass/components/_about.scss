@@ -1,0 +1,127 @@
+
+/*===============
+  ABOUT 3
+===============*/
+.about3 {
+  &__image {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    img {
+      height: 600px;
+      object-fit: contain;
+    }
+    &__brand {
+      position: absolute;
+      padding: 10px;
+      background-color: $color-light;
+      width: 230px;
+      height: 86px;
+      box-shadow: 2px 0px 15px 5px $color-shadow;
+      animation: upDown 3s linear infinite alternate;
+      right: 20px;
+      bottom: 50px;
+      border-radius: 5px;
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      &--trust {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        padding-left: 5px;
+        border-left: 1px solid $color-shadow;
+      }
+      &--rating {
+        padding-right: 5px;
+        display: flex;
+        flex-direction: column;
+
+        justify-content: center;
+        &--percent {
+          font-weight: 700;
+          font-size: 18px;
+        }
+        &--stars {
+          display: block;
+          font-size: 12px;
+          color: #fed455;
+        }
+        &--count {
+          font-size: 10px;
+        }
+      }
+      @include respond(desktop) {
+        left: -15px;
+      }
+      @include respond(laptop) {
+        left: 100px;
+        bottom: 5%;
+      }
+      @include respond(tablet) {
+        left: 55px;
+      }
+      @include respond(phone) {
+        font-size: 14px;
+        width: 230px;
+        height: 80px;
+        left: 40px;
+        bottom: 10px;
+      }
+      h3 {
+        font-size: 32px;
+      }
+      p {
+        line-height: 1.8;
+        margin-bottom: 0;
+      }
+    }
+  }
+  &__content {
+    &--ico {
+      width: 22px;
+      height: 22px;
+      border-radius: 100%;
+      border: 1px solid $color-primary;
+      color: $color-primary;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+    ul {
+      grid-template-columns: 1fr 1fr;
+      display: grid;
+      grid-gap: 15px;
+      @include respond(phone) {
+        grid-template-columns: auto;
+      }
+
+      li {
+        display: grid;
+        align-items: center;
+        grid-gap: 0.5rem;
+        background-color: $color-tertiary;
+        grid-template-columns: auto 1fr;
+        padding: 12px 20px;
+        border-radius: 5px;
+      }
+    }
+  }
+}
+
+/////  ABOUT 3 DARK VERSION  /////
+.theme-dark {
+  .about3 {
+    background-color: $color-dark-primary;
+    &__content {
+      ul {
+        li {
+          background-color: $color-secondary;
+        }
+      }
+    }
+    &__image__brand {
+      background-color: $color-secondary;
+    }
+  }
+}

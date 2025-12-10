@@ -1,0 +1,61 @@
+/*===============
+  CTA VERSION 03
+===============*/
+.cta3 {
+  &__wrapper {
+    background-color: $color-tertiary;
+    padding: 50px;
+    border-radius: 10px;
+    position: relative;
+    img {
+      border-radius: 10px;
+    }
+    &__content {
+ul{
+  li{
+    position: relative;
+    padding-left: 15px;
+    font-size: 18px;
+    &:not(:last-child){
+      margin-bottom: 10px;
+    }
+    &:before{
+position: absolute;
+content: "";
+width: 10px;
+height: 10px;
+background-color: $color-primary;
+left: 0;
+border-radius: 50%;
+// top: 50%;
+// transform: translateY(-50%);
+top: 9PX;
+    }
+  }
+}
+     
+    }
+  }
+
+}
+
+/////  DARK VERSION  /////
+.theme-dark {
+  .cta3 {
+    background-color: $color-dark-primary;
+    &__wrapper {
+      background-color: $color-secondary;
+      &__content {
+        p {
+          color: $color-light;
+        }
+        h5 {
+          span {
+            color: $color-light;
+          }
+        }
+      }
+    }
+  }
+
+}
